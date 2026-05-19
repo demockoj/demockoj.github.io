@@ -8,15 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style type="text/tailwindcss">
-        @variant dark (&:where(.dark, .dark *));
+    <style>
         body { font-family: 'Inter', sans-serif; }
     </style>
     <script>
-        if (localStorage.getItem('theme') === 'light') {
-            document.documentElement.classList.remove('dark');
-        } else {
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
     </script>
 </head>
@@ -34,8 +33,8 @@
                 </div>
                 
                 <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:ring-2 hover:ring-slate-200 dark:hover:ring-slate-700 transition cursor-pointer" aria-label="Toggle Dark Mode">
-                    <span id="theme-toggle-light-icon" class="text-amber-400 font-bold">☀️</span>
-                    <span id="theme-toggle-dark-icon" class="text-slate-700 font-bold">🌙</span>
+                    <span id="theme-toggle-light-icon" class="hidden dark:inline text-amber-400 font-bold">☀️</span>
+                    <span id="theme-toggle-dark-icon" class="inline dark:hidden text-slate-700 font-bold">🌙</span>
                 </button>
             </div>
         </div>
@@ -344,33 +343,18 @@
 
             const activeBtn = document.getElementById('btn-' + category);
             if (activeBtn) {
-                // Apply active theme block and mark with stable class for detection
+                // Apply active theme block
                 if (document.documentElement.classList.contains('dark')) {
-                    activeBtn.className = "active-filter px-3 py-1.5 rounded-lg bg-white text-slate-900 font-semibold transition cursor-pointer shadow-sm";
+                    activeBtn.className = "px-3 py-1.5 rounded-lg bg-white text-slate-900 font-semibold transition cursor-pointer shadow-sm";
                 } else {
-                    activeBtn.className = "active-filter px-3 py-1.5 rounded-lg bg-slate-900 text-white font-semibold transition cursor-pointer shadow-sm";
+                    activeBtn.className = "px-3 py-1.5 rounded-lg bg-slate-900 text-white font-semibold transition cursor-pointer shadow-sm";
                 }
             }
         }
 
         // Dark/Light Theme Scripting Configuration
         const themeToggleBtn = document.getElementById('theme-toggle');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-
-        function updateToggleIcons() {
-            if (document.documentElement.classList.contains('dark')) {
-                lightIcon.style.display = 'inline';
-                darkIcon.style.display = 'none';
-            } else {
-                lightIcon.style.display = 'none';
-                darkIcon.style.display = 'inline';
-            }
-        }
-
-        // Set icons correctly on page load
-        updateToggleIcons();
-
+        
         themeToggleBtn.addEventListener('click', function() {
             if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark');
@@ -379,16 +363,12 @@
                 document.documentElement.classList.add('dark');
                 localStorage.setItem('theme', 'dark');
             }
-
-            updateToggleIcons();
-
-            // Re-call current active filter to update button highlight for new mode
-            const activeFilter = document.querySelector('#projects button.active-filter');
+            
+            // Re-call current active filter to make sure button layout updates its highlight background matching the new mode
+            const activeFilter = document.querySelector('#projects button[class*="bg-slate-900"], #projects button[class*="dark:bg-white"]');
             if (activeFilter) {
                 const filterId = activeFilter.id.replace('btn-', '');
                 filterProjects(filterId);
-            } else {
-                filterProjects('all');
             }
         });
     </script>
