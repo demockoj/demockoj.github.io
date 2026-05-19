@@ -3,300 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Democko | Senior Mechanical Engineer & Technology Policy Specialist</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Jacob Democko | Professional Portfolio</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
-    <script>
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-    </script>
+        /* Custom transitions since Tailwind v4 class recalculation handles manual dark hooks smoothly */
+        .theme-transition {
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        text-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 antialiased tracking-tight transition-colors duration-200">
+<body class="theme-transition bg-slate-950 text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-sky-500/30 selection:text-sky-200">
 
-    <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-200">
+    <div id="bgCanvasShell" class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black -z-50 pointer-events-none opacity-100 theme-transition"></div>
+
+    <header class="sticky top-0 z-40 backdrop-blur-md border-b theme-transition border-slate-800/80 bg-slate-950/80">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Jacob Democko</span>
-            <div class="flex items-center space-x-6">
-                <div class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
-                    <a href="#projects" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
-                    <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Skills Matrix</a>
-                    <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-sky-500/20">
+                    <span class="text-white font-bold text-sm tracking-wider">JD</span>
                 </div>
-                
-                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:ring-2 hover:ring-slate-200 dark:hover:ring-slate-700 transition cursor-pointer" aria-label="Toggle Dark Mode">
-                    <span id="theme-toggle-light-icon" class="hidden dark:inline text-amber-400 font-bold">☀️</span>
-                    <span id="theme-toggle-dark-icon" class="inline dark:hidden text-slate-700 font-bold">🌙</span>
-                </button>
+                <span id="navName" class="font-bold text-sm tracking-tight text-white theme-transition">Jacob Democko</span>
             </div>
-        </div>
-    </nav>
+            
+            <nav class="hidden md:flex items-center space-x-1">
+                <a href="#profile" class="px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition-colors">Profile</a>
+                <a href="#skills" class="px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition-colors">Core Skills</a>
+                <a href="#portfolio" class="px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition-colors">Project Portfolio</a>
+            </nav>
 
-    <header id="about" class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-16 lg:py-24 transition-colors duration-200">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="w-44 h-44 sm:w-52 sm:h-52 shrink-0">
-                    <img src="profile.jpeg" alt="Jacob Democko Profile Headshot" class="w-full h-full object-cover rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800" onerror="this.src='https://placehold.co/300x300?text=Profile+Photo';">
-                </div>
-                <div class="flex-1 text-center md:text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-900/60 mb-4">
-                        <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span>
-                        Senior Engineering &amp; Strategy Portfolio
-                    </div>
-                    <h1 class="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2 sm:text-5xl">
-                        Jacob Democko
-                    </h1>
-                    <p class="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-300 mb-2 leading-relaxed">
-                        Senior Mechanical Engineer &amp; Technology Policy Specialist
-                    </p>
-                    <p class="text-sm sm:text-base font-semibold text-blue-600 dark:text-blue-400 mb-4 tracking-wide uppercase">
-                        Nuclear security and dual-use technology design
-                    </p>
-                    <p class="text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed mb-6 text-sm sm:text-base">
-                        Bridging precision mechanical engineering, advanced micro/nanofabrication, and thermal-fluid systems with clean energy systems, nuclear security policy, technology policy and sustainability.
-                    </p>
-                    
-                    <div class="mb-6 flex flex-wrap justify-center md:justify-start gap-3">
-                        <a href="Jacob Democko Resume MAY2026.pdf" download="Jacob_Democko_Resume_May2026.pdf" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg shadow-sm transition">
-                            💾 Download Resume (PDF)
-                        </a>
-                    </div>
-
-                    <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 text-xs text-slate-400 dark:text-slate-500 font-medium border-t border-slate-100 dark:border-slate-800 pt-4">
-                        <span>✉️ <a href="mailto:jacob.democko@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">jacob.democko@gmail.com</a></span>
-                        <span>•</span>
-                        <span>📞 (954) 547-0511</span>
-                        <span>•</span>
-                        <span class="bg-amber-50 text-amber-800 border border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-900/60 px-1.5 py-0.5 rounded text-[11px]">🛡️ DOE Q Security Clearance</span>
-                    </div>
-                </div>
+            <div class="flex items-center space-x-3">
+                <button id="themeToggleBtn" type="button" class="p-2.5 rounded-xl border theme-transition border-slate-800 bg-slate-900/50 hover:bg-slate-900 text-amber-400 cursor-pointer" title="Toggle Display Theme Mode">
+                    <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14.25 12a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+                    <svg id="moonIcon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+                </button>
+                <a href="mailto:jacob.democko@gmail.com" class="px-4 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-400 hover:to-sky-500 text-white font-semibold text-xs tracking-wide shadow-md shadow-sky-500/10 transition-all">Contact</a>
             </div>
         </div>
     </header>
 
-    <section class="max-w-4xl mx-auto px-4 py-12">
-        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-sm transition-colors duration-200">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Executive Summary</h2>
-            <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
-                Multidisciplinary engineer with high-impact experience balancing technical execution at <strong class="text-slate-900 dark:text-white">Lawrence Livermore National Laboratory</strong>, rapid manufacturing optimization at <strong class="text-slate-900 dark:text-white">Lucid Motors</strong>, and infrastructure deployment at <strong class="text-slate-900 dark:text-white">RMF Engineering</strong>. Combines an M.S. in Mechanical Engineering (UC Davis) with an advanced concentration in technology security policy (UC Berkeley) to manage critical engineering systems from early concepts to global scale deployment.
-            </p>
-        </div>
-    </section>
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+        
+        <section id="profile" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
+            <div class="lg:col-span-8 space-y-5 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border theme-transition border-slate-800 bg-slate-900/40 text-sky-400 font-bold text-[10px] tracking-wider uppercase mx-auto lg:mx-0">
+                    <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+                    <span>Senior Mechanical Engineer & Technology Specialist</span>
+                </div>
+                <h1 id="heroName" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white theme-transition leading-none">
+                    Jacob Democko
+                </h1>
+                <p id="heroHeadline" class="text-base sm:text-lg font-semibold text-slate-300 theme-transition max-w-2xl leading-relaxed">
+                    Bridging Precision Mechanical Engineering, Advanced Micro/Nanofabrication, and Thermal-Fluid Systems with Clean Energy Systems, Nuclear Security Policy, and Sustainability.
+                </p>
+                <p id="heroBody" class="text-xs font-medium text-slate-400 theme-transition max-w-3xl leading-relaxed">
+                    Multidisciplinary engineer with high-impact experience balancing technical execution at Lawrence Livermore National Laboratory, rapid manufacturing optimization at Lucid Motors, and infrastructure deployment at RMF Engineering. Combines an M.S. in Mechanical Engineering (UC Davis) with an advanced concentration in technology security policy (UC Berkeley) to manage critical engineering systems from early concepts to global scale deployment.
+                </p>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] font-bold text-slate-400 uppercase tracking-wider pt-2">
+                    <span class="flex items-center space-x-1.5">
+                        <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                        <span>Berkeley, CA</span>
+                    </span>
+                    <span class="hidden sm:inline text-slate-700">•</span>
+                    <span class="flex items-center space-x-1.5">
+                        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                        <span class="lowercase text-slate-300">jacob.democko@gmail.com</span>
+                    </span>
+                    <span class="hidden sm:inline text-slate-700">•</span>
+                    <span class="flex items-center space-x-1.5">
+                        <svg class="w-3.5 h-3.5 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.606-5.194-3.974-6.799-6.8l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                        <span>(954) 547-0511</span>
+                    </span>
+                </div>
+            </div>
+            <div class="lg:col-span-4 flex justify-center">
+                <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden group shadow-2xl border theme-transition border-slate-800 bg-slate-900">
+                    <img src="profile.jpeg" alt="Jacob Democko Profile Photo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
+                </div>
+            </div>
+        </section>
 
-    <main id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div>
-                <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">Technical Portfolio</h2>
-                <p class="text-sm text-slate-500 dark:text-slate-400">Filter through empirical manufacturing workflows, CAD blueprints, and policy dossiers.</p>
+        <section id="skills" class="space-y-6">
+            <div class="space-y-1.5">
+                <h2 class="text-xl font-extrabold tracking-tight text-white theme-transition">Technical Competencies</h2>
+                <div class="h-0.5 w-12 bg-gradient-to-r from-sky-500 to-indigo-600 rounded"></div>
             </div>
             
-            <div class="flex flex-wrap gap-1.5 text-xs font-medium">
-                <button onclick="filterProjects('all')" id="btn-all" class="px-3 py-1.5 rounded-lg bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm transition cursor-pointer">All Tracks</button>
-                <button onclick="filterProjects('mfg')" id="btn-mfg" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">Advanced Manufacturing</button>
-                <button onclick="filterProjects('thermal')" id="btn-thermal" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">Thermal Fluids</button>
-                <button onclick="filterProjects('structural')" id="btn-structural" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">Precision Design</button>
-                <button onclick="filterProjects('policy')" id="btn-policy" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer">Policy &amp; Security</button>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            <div class="project-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden flex flex-col transition hover:shadow-md" data-category="thermal">
-                <div class="bg-slate-100 dark:bg-slate-800 p-4 border-b border-slate-200 dark:border-slate-800 flex justify-center h-40 items-center overflow-hidden">
-                    <img src="img_4255.jpg" alt="Lucid Product Assembly Testing Buck" class="w-full h-full object-cover rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900" onerror="this.src='https://placehold.co/600x200?text=img_4255.jpg+Missing';">
-                </div>
-                <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                        <div class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide mb-1">Automotive System Design | Lucid Motors</div>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Airflow &amp; Aerodynamic Drag Optimization</h3>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
-                            Managed wind tunnel testing cycles using full-scale experimental vehicle models. Mapped out mass volumetric flow rates and active grille shutter (AGS) configurations to optimize electric vehicle cooling flow, charging, and range.
-                        </p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="pt-1">
-                            <a href="Wind Tunnel Presentation.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📊 Wind Tunnel Study (PDF)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden flex flex-col transition hover:shadow-md" data-category="mfg">
-                <div class="bg-slate-100 dark:bg-slate-800 p-4 border-b border-slate-200 dark:border-slate-800 flex justify-center h-40 items-center">
-                    <img src="35mm Heater.png" alt="Thermal Microsystems Routing Layout" class="max-h-36 object-contain rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900" onerror="this.style.display='none';">
-                </div>
-                <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                        <div class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-1">Bio-MEMS Innovation &amp; Microfabrication</div>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Chip-Scale Hemostasis Force Sensors</h3>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
-                            Research proposal of engineered micro-scale hemostasis blood parameter device. Design, fabrication, and characterization of thin-film heater and RTD elements for space applications.
-                        </p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="pt-1">
-                            <a href="Miniaturized Blood Clot Detection.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📂 Research Proposal (PDF)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden flex flex-col transition hover:shadow-md" data-category="structural">
-                <div class="bg-slate-100 dark:bg-slate-800 p-4 border-b border-slate-200 dark:border-slate-800 flex justify-center h-40 items-center overflow-hidden">
-                    <img src="img_1030.jpg" alt="Heavy Metal Tooling Alignment Component" class="w-full h-full object-cover rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900" onerror="this.style.display='none';">
-                </div>
-                <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                        <div class="text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wide mb-1">Tooling Design &amp; Rig Metrology</div>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">250-Ton Load Cell System Fixturing</h3>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
-                            Generated engineering documentation and geometric tolerance prints (GD&amp;T) supporting high-capacity structural testing at high load.
-                        </p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-xl p-3 text-xs text-slate-600 dark:text-slate-400">
-                            <strong>Mechanical Parameters:</strong> Mechanical load distribution, structural rigidity, and assembly tolerances with high safety factors.
-                        </div>
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            <a href="1013785393 - 250T Load Cell Base_Redacted.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📐 Base Blueprints (PDF)</a>
-                            <a href="1013820925 - 250T Load Cell Insert_Redacted.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📐 Insert Blueprints (PDF)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden flex flex-col transition hover:shadow-md" data-category="policy">
-                <div class="p-6 flex-1 flex flex-col justify-between bg-gradient-to-br from-white to-slate-50/50 dark:from-slate-900 dark:to-slate-900/40">
-                    <div>
-                        <div class="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide mb-1">Data Analytics | UC Davis MAE 298</div>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Econometric Analysis of Global AI Patents</h3>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
-                            Built a multi-variable panel dataset (2013-2023) separating regional variations over time. Modeled macroeconomic conversion rates from open research indexes into issued technology patents.
-                        </p>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="bg-slate-900 dark:bg-slate-950 text-slate-200 rounded-xl p-3 text-xs font-mono space-y-1">
-                            <div>📈 <span class="text-indigo-400">R² Model Fit:</span> 0.94 Variation Coverage</div>
-                            <div>📊 <span class="text-indigo-400">Elasticity:</span> +1% Papers = +0.98% Local Patents</div>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <a href="AI Patent Production by Region Report.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📂 Research Manuscript (PDF)</a>
-                            <a href="AI Patent Production by Region Presentation.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📊 Slides (PDF)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden flex flex-col transition hover:shadow-md" data-category="policy">
-                <div class="p-6 flex-1 flex flex-col justify-between bg-gradient-to-br from-white to-slate-50/50 dark:from-slate-900 dark:to-slate-900/40">
-                    <div>
-                        <div class="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide mb-1">Nuclear Nonproliferation Strategy | UC Berkeley</div>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Open Skies II Trilateral Transparency Agreement</h3>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
-                            Authored a strategic alternative to arms control, linking the US, Russia, and China. Replaced traditional disarmament negotiations with a transparency framework involving unarmed surveillance flights.
-                        </p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-xl p-3 text-xs text-slate-600 dark:text-slate-400">
-                            <strong>System Mechanics:</strong> Mutual unarmed flyovers and data sharing.
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <a href="C285 Team Echo - Open Skies II.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📂 Policy Dossier (PDF)</a>
-                            <a href="C285 Team Echo - Open Skies II Final Presentation.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📊 Defense Brief (PDF)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden flex flex-col transition hover:shadow-md md:col-span-2" data-category="policy">
-                <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                    <div>
-                        <div class="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide mb-1">Federal Technology Policy Memo | UC Berkeley PUBPOL 247</div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">U.S. HALEU Leasing Operations (HALO) Program</h3>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
-                            Authored an executive policy memo proposing legislative updates to secure Small Modular Reactor (SMR) export dominance. Developed fuel cycle alternatives where international purchasers lease HALEU fuel from the US, advancing the domestic supply chain and neutralizing nuclear nonproliferation concerns.
-                        </p>
-                    </div>
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 border-t border-slate-100 dark:border-slate-800 mt-2">
-                        <a href="Final Policy Memo - Democko.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white dark:text-white shrink-0 px-4 py-2 rounded-lg transition shadow-sm">📂 Download Policy Memo (PDF)</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden flex flex-col transition hover:shadow-md" data-category="thermal">
-                <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                        <div class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide mb-1">Sustainable Core Logistics | UC Davis MAE 256</div>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Radiator Fleet Manufacturing Life Cycle Study</h3>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
-                            Drafted environmental study of commercial vehicle aluminum-copper heat exchanger production. Evaluated atmospheric carbon footprints and proposed alternatives for brazing process to reduce per-unit energy consumption.
-                        </p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-xl p-3 text-xs text-slate-600 dark:text-slate-400">
-                            <strong>Focus:</strong> Evaluates automotive component manufacturing sustainability.
-                        </div>
-                        <div class="pt-1">
-                            <a href="Radiator Sustainability Report.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📂 Sustainability Report (PDF)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden flex flex-col transition hover:shadow-md" data-category="mfg">
-                <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                        <div class="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-1">Academic Research | UC Davis MAE 259</div>
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">SLA 3D Printing Optimization Study</h3>
-                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
-                            Investigated commercial stereolithography (SLA) roughness and dimensional repeatability parameters. Designed process mapping to track optimal printing thresholds while securing target structural resolution.
-                        </p>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            <a href="SLA 3D Printing Quality Report.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📂 Quality Report (PDF)</a>
-                            <a href="SLA Print Quality Presentation.pdf" download class="inline-flex items-center gap-1.5 text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 px-3 py-1.5 rounded transition">📊 Presentation (PDF)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <section id="skills" class="bg-slate-900 dark:bg-slate-900 border-t border-slate-800 text-white py-16">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-extrabold text-white tracking-tight mb-2 text-center">Core Engineering &amp; Strategy Matrix</h2>
-            <p class="text-xs text-slate-400 text-center mb-12 max-w-sm mx-auto">Cross-domain validation across premier national laboratories, automotive startups, and policy institutes.</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                <div class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-6">
-                    <div class="text-amber-400 font-bold text-xs tracking-wider uppercase mb-3">Mechanical Hardware Design</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900/60 border theme-transition border-slate-800/60 rounded-xl p-6">
+                    <div class="text-sky-400 font-bold text-xs tracking-wider uppercase mb-3">Precision Design &amp; Fab</div>
                     <ul class="space-y-2 text-slate-300 text-xs font-medium">
-                        <li>• Precision CAD Integration (Catia, Creo)</li>
+                        <li>• CAD Design & Integration (Catia, Creo)</li>
                         <li>• Geometric Dimensioning &amp; Tolerancing (GD&amp;T)</li>
-                        <li>• Prototyping (SLA Optimization, Micro-MEMS)</li>
+                        <li>• Prototyping (3D Printing, MEMS)</li>
                         <li>• Manufacturing Optimization (DFM/DFA)</li>
                     </ul>
                 </div>
-                <div class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-6">
+                <div class="bg-slate-900/60 border theme-transition border-slate-800/60 rounded-xl p-6">
                     <div class="text-emerald-400 font-bold text-xs tracking-wider uppercase mb-3">Computation &amp; Test Diagnostics</div>
                     <ul class="space-y-2 text-slate-300 text-xs font-medium">
                         <li>• Engineering Scripts (MATLAB, Python)</li>
-                        <li>• Systems Automation (NI LabVIEW Architecture)</li>
-                        <li>• Experimental Wind Tunnel Flow Metrics</li>
-                        <li>• Panel Data Fixed-Effects Econometric Models</li>
+                        <li>• Systems Automation (NI LabVIEW)</li>
+                        <li>• Experimental Design & Testing</li>
+                        <li>• Statistical Methods & Modeling</li>
                     </ul>
                 </div>
-                <div class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-6">
+                <div class="bg-slate-900/60 border theme-transition border-slate-800/60 rounded-xl p-6">
                     <div class="text-indigo-400 font-bold text-xs tracking-wider uppercase mb-3">Clearance &amp; Education</div>
                     <ul class="space-y-2 text-slate-300 text-xs font-medium">
                         <li>• Active DoE Q Security Clearance Holder</li>
@@ -306,67 +127,329 @@
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contact" class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12 text-center text-xs text-slate-500 dark:text-slate-400 transition-colors duration-200">
-        <div class="max-w-4xl mx-auto px-4 space-y-3">
-            <p class="font-semibold text-slate-800 dark:text-slate-200 text-sm">Jacob Democko &copy; 2026</p>
-            <div class="pt-2 flex justify-center gap-4 font-medium text-slate-600 dark:text-slate-400">
-                <a href="mailto:jacob.democko@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">jacob.democko@gmail.com</a>
-                <span>•</span>
-                <span>(954) 547-0511</span>
+        <section id="portfolio" class="space-y-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div class="space-y-1.5">
+                    <h2 class="text-xl font-extrabold tracking-tight text-white theme-transition">Technical Portfolio</h2>
+                    <p class="text-xs font-medium text-slate-400 theme-transition">Explore cross-functional projects across multiple disciplines</p>
+                </div>
+                <div id="filterTrack" class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider">
+                    <button onclick="filterProjects('all')" id="tab-all" class="px-3 py-1.5 rounded-lg border theme-transition bg-sky-500 border-sky-400 text-white shadow-sm shadow-sky-500/10 cursor-pointer">All Projects</button>
+                    <button onclick="filterProjects('mech')" id="tab-mech" class="px-3 py-1.5 rounded-lg border theme-transition bg-slate-900 border-slate-800 text-slate-400 hover:text-white cursor-pointer">Engineering &amp; Fab</button>
+                    <button onclick="filterProjects('policy')" id="tab-policy" class="px-3 py-1.5 rounded-lg border theme-transition bg-slate-900 border-slate-800 text-slate-400 hover:text-white cursor-pointer">Global Policy &amp; Security</button>
+                </div>
             </div>
+
+            <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-300">
+                
+                <div class="project-card bg-slate-900/40 border theme-transition border-slate-800/80 rounded-xl p-6 flex flex-col justify-between space-y-4 shadow-sm" data-cat="mech">
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold tracking-wider text-sky-400 uppercase">Advanced Manufacturing</span>
+                            <span class="text-[10px] text-slate-500 font-medium font-mono">Academic Research</span>
+                        </div>
+                        <h3 class="text-base font-bold tracking-tight text-white theme-transition">SLA 3D Printing Parameter Optimization</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed font-medium">
+                            Investigated commercial stereolithography (SLA) roughness and dimensional repeatability parameters. Quantified layer height variations alongside UV light exposure metrics using a Mahr MarSurf PS10 tester to shrink baseline production schedules safely while preserving key volumetric dimensional tolerances.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 pt-2 border-t theme-transition border-slate-800/60">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">SLA</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Metrology</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-slate-900/40 border theme-transition border-slate-800/80 rounded-xl p-6 flex flex-col justify-between space-y-4 shadow-sm" data-cat="mech">
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold tracking-wider text-sky-400 uppercase">Microfluidics &amp; BioMEMS</span>
+                            <span class="text-[10px] text-slate-500 font-medium font-mono">R&amp;D Proposal</span>
+                        </div>
+                        <h3 class="text-base font-bold tracking-tight text-white theme-transition">Miniaturized Hemostasis Diagnostic Platform</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed font-medium">
+                            Research proposal of engineered micro-scale hemostasis blood parameter device. Designed a chip-scale force-sensing platform capable of isolating platelet retraction mechanics down to pico-Newton resolutions via silicon flexible beams to diagnose patient clotting profiles inside surgical suites within fractions of typical clinical turnaround times.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 pt-2 border-t theme-transition border-slate-800/60">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">MEMS</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Microfluidics</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-slate-900/40 border theme-transition border-slate-800/80 rounded-xl p-6 flex flex-col justify-between space-y-4 shadow-sm" data-cat="mech">
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold tracking-wider text-sky-400 uppercase">Aerodynamics &amp; Thermal Systems</span>
+                            <span class="text-[10px] text-slate-500 font-medium font-mono">Lucid Motors</span>
+                        </div>
+                        <h3 class="text-base font-bold tracking-tight text-white theme-transition">EV Cooling Pack Wind Tunnel Validation</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed font-medium">
+                            Managed wind tunnel testing cycles using full-scale experimental vehicle models. Mapped out mass volumetric flow rates and active grille shutter (AGS) configurations to optimize electric vehicle cooling flow, charging, and range. Validated aerodynamic drag metrics using LabVIEW log streams inside rolling-road wind tunnels.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 pt-2 border-t theme-transition border-slate-800/60">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">LabVIEW</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Thermal Fluids</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-slate-900/40 border theme-transition border-slate-800/80 rounded-xl p-6 flex flex-col justify-between space-y-4 shadow-sm" data-cat="policy">
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold tracking-wider text-indigo-400 uppercase">Data Analytics &amp; Tech Policy</span>
+                            <span class="text-[10px] text-slate-500 font-medium font-mono">Statistical Design</span>
+                        </div>
+                        <h3 class="text-base font-bold tracking-tight text-white theme-transition">Global AI Patent Conversion Panel Study</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed font-medium">
+                            Constructed log-transformed Ordinary Least Squares (OLS) and fixed-effects panel regression models tracking multi-regional innovation inputs against issued patent rates from 2013-2023. Isolated regional investment returns showing a 94% explainable variance across international tech blocks.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 pt-2 border-t theme-transition border-slate-800/60">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Python</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Econometrics</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-slate-900/40 border theme-transition border-slate-800/80 rounded-xl p-6 flex flex-col justify-between space-y-4 shadow-sm" data-cat="policy">
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold tracking-wider text-indigo-400 uppercase">Nuclear Security Policy</span>
+                            <span class="text-[10px] text-slate-500 font-medium font-mono">UC Berkeley C285</span>
+                        </div>
+                        <h3 class="text-base font-bold tracking-tight text-white theme-transition">Trilateral Verification Transparency Architecture</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed font-medium">
+                            Authored a strategic alternative to arms control, linking the US, Russia, and China. Replaced traditional disarmament negotiations with a transparency framework involving unarmed surveillance flights. Designed a comprehensive decision matrix validating sensor access limits and verification data sharing protocols.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 pt-2 border-t theme-transition border-slate-800/60">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Arms Control</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Strategic Stability</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-slate-900/40 border theme-transition border-slate-800/80 rounded-xl p-6 flex flex-col justify-between space-y-4 shadow-sm" data-cat="policy">
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold tracking-wider text-indigo-400 uppercase">Energy Policy &amp; Nonproliferation</span>
+                            <span class="text-[10px] text-slate-500 font-medium font-mono">Strategic Policy Memo</span>
+                        </div>
+                        <h3 class="text-base font-bold tracking-tight text-white theme-transition">HALEU Fuel Fuel-Cycle Leasing Architecture</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed font-medium">
+                            Authored an executive policy memo proposing legislative updates to secure Small Modular Reactor (SMR) export dominance. Developed fuel cycle alternatives where international purchasers lease HALEU fuel from the US, advancing the domestic supply chain and neutralizing nuclear nonproliferation concerns. Addressed regulatory challenges regarding updated 10 CFR Part 53 licensing rules.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 pt-2 border-t theme-transition border-slate-800/60">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">SMR</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">HALEU Enrichment</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-slate-900/40 border theme-transition border-slate-800/80 rounded-xl p-6 flex flex-col justify-between space-y-4 shadow-sm" data-cat="mech">
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold tracking-wider text-sky-400 uppercase">Sustainability Engineering</span>
+                            <span class="text-[10px] text-slate-500 font-medium font-mono">Environmental Assessment</span>
+                        </div>
+                        <h3 class="text-base font-bold tracking-tight text-white theme-transition">Automotive Heat Exchanger Lifecycle Audit</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed font-medium">
+                            Drafted environmental study of commercial vehicle aluminum-copper heat exchanger production. Evaluated atmospheric carbon footprints and proposed alternatives for brazing process to reduce per-unit energy consumption. Charted material sourcing avenues to protect margin viability across volatile baseline commercial cycles.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 pt-2 border-t theme-transition border-slate-800/60">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">LCA</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Green Manufacturing</span>
+                    </div>
+                </div>
+
+                <div class="project-card bg-slate-900/40 border theme-transition border-slate-800/80 rounded-xl p-6 flex flex-col justify-between space-y-4 shadow-sm" data-cat="mech">
+                    <div class="space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold tracking-wider text-sky-400 uppercase">Heavy Structural Testing</span>
+                            <span class="text-[10px] text-slate-500 font-medium font-mono">LLNL Heavy Equipment</span>
+                        </div>
+                        <h3 class="text-base font-bold tracking-tight text-white theme-transition">250T Load Cell Base &amp; Structural Inserts</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed font-medium">
+                            Generated engineering documentation and geometric tolerance prints (GD&T) supporting high-capacity structural testing at high load. Analyzed mechanical load distribution, structural rigidity, and assembly tolerances with high safety factors to guarantee structural integrity throughout intensive diagnostic testing parameters.
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 pt-2 border-t theme-transition border-slate-800/60">
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">GD&amp;T</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300">Precision Rigidity</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t theme-transition border-slate-800/80 bg-slate-950 py-8 mt-12 text-center text-slate-500 text-[11px] font-medium tracking-wide uppercase">
+        <div class="max-w-6xl mx-auto px-4">
+            &copy; 2026 Jacob Democko. All Rights Reserved.
         </div>
     </footer>
 
     <script>
-        // Project categorization selector
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-            
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            const filterButtons = document.querySelectorAll('#projects button');
-            filterButtons.forEach(btn => {
-                btn.className = "px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition cursor-pointer";
-            });
-
-            const activeBtn = document.getElementById('btn-' + category);
-            if (activeBtn) {
-                if (document.documentElement.classList.contains('dark')) {
-                    activeBtn.className = "px-3 py-1.5 rounded-lg bg-white text-slate-900 font-semibold transition cursor-pointer shadow-sm";
-                } else {
-                    activeBtn.className = "px-3 py-1.5 rounded-lg bg-slate-900 text-white font-semibold transition cursor-pointer shadow-sm";
-                }
+        // Runtime Framework Theme Color Config Rules Object
+        const colors = {
+            dark: {
+                bg: "bg-slate-950",
+                nav: "bg-slate-950/80",
+                textMain: "text-slate-100",
+                border: "border-slate-800/80",
+                borderHeader: "border-b border-slate-800/80",
+                cardBg: "bg-slate-900/40",
+                cardBorder: "border-slate-800/80",
+                textWhite: "text-white",
+                textMuted: "text-slate-400",
+                textTitle: "text-white",
+                pillBg: "bg-slate-900",
+                pillBorder: "border-slate-800",
+                pillText: "text-slate-400"
+            },
+            light: {
+                bg: "bg-zinc-50",
+                nav: "bg-white/80",
+                textMain: "text-zinc-800",
+                border: "border-zinc-200",
+                borderHeader: "border-b border-zinc-200",
+                cardBg: "bg-white",
+                cardBorder: "border-zinc-200",
+                textWhite: "text-zinc-900",
+                textMuted: "text-zinc-500",
+                textTitle: "text-zinc-900",
+                pillBg: "bg-zinc-100",
+                pillBorder: "border-zinc-200",
+                pillText: "text-zinc-600"
             }
-        }
+        };
 
-        // Dark/Light Theme Scripting Configuration
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        
-        themeToggleBtn.addEventListener('click', function() {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
+        let currentMode = "dark";
+
+        const themeToggleBtn = document.getElementById("themeToggleBtn");
+        const sunIcon = document.getElementById("sunIcon");
+        const moonIcon = document.getElementById("moonIcon");
+        const bgCanvasShell = document.getElementById("bgCanvasShell");
+        const navHeader = document.querySelector("header");
+        const navName = document.getElementById("navName");
+        const heroName = document.getElementById("heroName");
+        const heroHeadline = document.getElementById("heroHeadline");
+        const heroBody = document.getElementById("heroBody");
+        const footer = document.querySelector("footer");
+
+        themeToggleBtn.addEventListener("click", () => {
+            if (currentMode === "dark") {
+                // Swap to Crisp Light Mode canvas Look
+                currentMode = "light";
+                document.body.classList.replace(colors.dark.bg, colors.light.bg);
+                document.body.classList.replace(colors.dark.textMain, colors.light.textMain);
+                bgCanvasShell.className = "absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-100 via-zinc-50 to-zinc-200/60 -z-50 pointer-events-none opacity-100 theme-transition";
+                
+                navHeader.className = `sticky top-0 z-40 backdrop-blur-md ${colors.light.borderHeader} ${colors.light.nav}`;
+                navName.className = `font-bold text-sm tracking-tight ${colors.light.textWhite} theme-transition`;
+                heroName.className = `text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${colors.light.textWhite} theme-transition leading-none`;
+                heroHeadline.className = `text-base sm:text-lg font-semibold text-zinc-700 theme-transition max-w-2xl leading-relaxed`;
+                heroBody.className = `text-xs font-medium text-zinc-500 theme-transition max-w-3xl leading-relaxed`;
+                footer.className = `border-t theme-transition ${colors.light.border} ${colors.light.bg} py-8 mt-12 text-center text-zinc-400 text-[11px] font-medium tracking-wide uppercase`;
+                
+                // Recalculate static Skill Cards text wrappers and background containers
+                document.querySelectorAll("#skills > div > div").forEach(card => {
+                    card.className = `${colors.light.cardBg} border theme-transition ${colors.light.cardBorder} rounded-xl p-6`;
+                    card.querySelector("ul").className = "space-y-2 text-zinc-600 text-xs font-medium";
+                });
+
+                // Recalculate Dynamic Project Cards items inside target grid block
+                document.querySelectorAll(".project-card").forEach(pCard => {
+                    const matchesActiveFilter = pCard.style.display !== "none";
+                    pCard.className = `project-card ${colors.light.cardBg} border theme-transition ${colors.light.cardBorder} rounded-xl p-6 flex flex-col justify-between space-y-4 shadow-sm`;
+                    pCard.querySelector("h3").className = `text-base font-bold tracking-tight ${colors.light.textTitle} theme-transition`;
+                    pCard.querySelector("p").className = `text-xs text-zinc-600 leading-relaxed font-medium`;
+                    pCard.querySelector("div:last-child").className = `flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-zinc-400 pt-2 border-t theme-transition ${colors.light.border}`;
+                    pCard.querySelectorAll("div:last-child > span").forEach(span => {
+                        span.className = "px-2 py-0.5 rounded bg-zinc-100 text-zinc-600";
+                    });
+                });
+
+                // Adjust Navigation anchor classes dynamically
+                document.querySelectorAll("header nav a").forEach(a => {
+                    a.className = "px-3 py-2 rounded-lg text-xs font-semibold text-zinc-600 hover:text-zinc-900 transition-colors";
+                });
+
+                themeToggleBtn.className = `p-2.5 rounded-xl border theme-transition ${colors.light.cardBorder} ${colors.light.cardBg} hover:bg-zinc-100 text-indigo-600 cursor-pointer`;
+                moonIcon.classList.add("hidden");
+                sunIcon.classList.remove("hidden");
             } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
+                // Revert to Ultra-sleek Crisp Space Dark look
+                currentMode = "dark";
+                document.body.classList.replace(colors.light.bg, colors.dark.bg);
+                document.body.classList.replace(colors.light.textMain, colors.dark.textMain);
+                bgCanvasShell.className = "absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black -z-50 pointer-events-none opacity-100 theme-transition";
+                
+                navHeader.className = `sticky top-0 z-40 backdrop-blur-md ${colors.dark.borderHeader} ${colors.dark.nav}`;
+                navName.className = `font-bold text-sm tracking-tight ${colors.dark.textWhite} theme-transition`;
+                heroName.className = `text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${colors.dark.textWhite} theme-transition leading-none`;
+                heroHeadline.className = `text-base sm:text-lg font-semibold text-slate-300 theme-transition max-w-2xl leading-relaxed`;
+                heroBody.className = `text-xs font-medium text-slate-400 theme-transition max-w-3xl leading-relaxed`;
+                footer.className = `border-t theme-transition ${colors.dark.border} ${colors.dark.bg} py-8 mt-12 text-center text-slate-500 text-[11px] font-medium tracking-wide uppercase`;
+                
+                document.querySelectorAll("#skills > div > div").forEach(card => {
+                    card.className = `${colors.dark.cardBg} border theme-transition ${colors.dark.cardBorder} rounded-xl p-6`;
+                    card.querySelector("ul").className = "space-y-2 text-slate-300 text-xs font-medium";
+                });
+
+                document.querySelectorAll(".project-card").forEach(pCard => {
+                    pCard.className = `project-card ${colors.dark.cardBg} border theme-transition ${colors.dark.cardBorder} rounded-xl p-6 flex flex-col justify-between space-y-4 shadow-sm`;
+                    pCard.querySelector("h3").className = `text-base font-bold tracking-tight ${colors.dark.textTitle} theme-transition`;
+                    pCard.querySelector("p").className = `text-xs text-slate-400 leading-relaxed font-medium`;
+                    pCard.querySelector("div:last-child").className = `flex items-center space-x-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 pt-2 border-t theme-transition ${colors.dark.cardBorder}`;
+                    pCard.querySelectorAll("div:last-child > span").forEach(span => {
+                        span.className = "px-2 py-0.5 rounded bg-slate-800 text-slate-300";
+                    });
+                });
+
+                document.querySelectorAll("header nav a").forEach(a => {
+                    a.className = "px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition-colors";
+                });
+
+                themeToggleBtn.className = `p-2.5 rounded-xl border theme-transition ${colors.dark.cardBorder} ${colors.dark.cardBg} hover:bg-slate-900 text-amber-400 cursor-pointer`;
+                sunIcon.classList.add("hidden");
+                moonIcon.classList.remove("hidden");
             }
-            
-            // Force active state highlight styling sync
-            const activeFilterButton = document.querySelector('#projects button[class*="bg-slate-900"], #projects button[class*="bg-white text-slate-900"]');
-            if (activeFilterButton) {
-                const currentCategoryId = activeFilterButton.id.replace('btn-', '');
-                filterProjects(currentCategoryId);
+            // Repaint the tab headers state dynamically to align text weights
+            const activeTab = document.querySelector("#filterTrack button[class*='bg-sky-500']");
+            if(activeTab) {
+                const activeId = activeTab.id.replace("tab-", "");
+                filterProjects(activeId);
             }
         });
+
+        // Portfolio Selection Filter Method Engine
+        function filterProjects(category) {
+            const cards = document.querySelectorAll(".project-card");
+            const tabs = document.querySelectorAll("#filterTrack button");
+            
+            // Adjust Pill Buttons state classes smoothly according to color mode rules context
+            tabs.forEach(tab => {
+                tab.className = currentMode === "dark" 
+                    ? "px-3 py-1.5 rounded-lg border theme-transition bg-slate-900 border-slate-800 text-slate-400 hover:text-white cursor-pointer" 
+                    : "px-3 py-1.5 rounded-lg border theme-transition bg-zinc-100 border-zinc-200 text-zinc-600 hover:text-zinc-900 cursor-pointer";
+            });
+
+            const activeTab = document.getElementById(`tab-${category}`);
+            if (activeTab) {
+                activeTab.className = "px-3 py-1.5 rounded-lg border theme-transition bg-sky-500 border-sky-400 text-white shadow-sm shadow-sky-500/10 cursor-pointer";
+            }
+
+            // Smooth out Card layout displays matching target category tags
+            cards.forEach(card => {
+                if (category === "all" || card.getAttribute("data-cat") === category) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
     </script>
 </body>
 </html>
