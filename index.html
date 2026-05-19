@@ -1,671 +1,671 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Democko | Engineering &amp; Technology Policy Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Modern CSS Variable Custom Architecture */
-        :root {
-            /* Default Dark Mode Color Profiles */
-            --bg-canvas: #020617; /* Slate 950 */
-            --bg-sidebar: #0f172a; /* Slate 900 */
-            --bg-card: #1e293b; /* Slate 800 */
-            --border-color: #334155; /* Slate 700 */
-            --text-main: #cbd5e1; /* Slate 300 */
-            --text-heading: #ffffff;
-            --text-muted: #94a3b8; /* Slate 400 */
-            --accent-blue: #38bdf8; /* Sky 400 */
-            --bg-tag: #0f172a;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Democko | Engineering &amp; Technology Policy Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Modern CSS Variable Custom Architecture */
+        :root {
+            /* Default Dark Mode Color Profiles */
+            --bg-canvas: #020617; /* Slate 950 */
+            --bg-sidebar: #0f172a; /* Slate 900 */
+            --bg-card: #1e293b; /* Slate 800 */
+            --border-color: #334155; /* Slate 700 */
+            --text-main: #cbd5e1; /* Slate 300 */
+            --text-heading: #ffffff;
+            --text-muted: #94a3b8; /* Slate 400 */
+            --accent-blue: #38bdf8; /* Sky 400 */
+            --bg-tag: #0f172a;
+        }
 
-        /* Class rule matching Light Theme selection overrides */
-        .light-theme {
-            --bg-canvas: #f8fafc; /* Slate 50 */
-            --bg-sidebar: #ffffff;
-            --bg-card: #ffffff;
-            --border-color: #e2e8f0; /* Slate 200 */
-            --text-main: #334155; /* Slate 700 */
-            --text-heading: #0f172a; /* Slate 900 */
-            --text-muted: #64748b; /* Slate 500 */
-            --accent-blue: #2563eb; /* Blue 600 */
-            --bg-tag: #eff6ff;
-        }
+        /* Class rule matching Light Theme selection overrides */
+        .light-theme {
+            --bg-canvas: #f8fafc; /* Slate 50 */
+            --bg-sidebar: #ffffff;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0; /* Slate 200 */
+            --text-main: #334155; /* Slate 700 */
+            --text-heading: #0f172a; /* Slate 900 */
+            --text-muted: #64748b; /* Slate 500 */
+            --accent-blue: #2563eb; /* Blue 600 */
+            --bg-tag: #eff6ff;
+        }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                        border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                        color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                        border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                        color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-main);
-            background-color: var(--bg-canvas);
-            line-height: 1.6;
-        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-canvas);
+            line-height: 1.6;
+        }
 
-        /* Sidebar Split Grid Framework */
-        .portfolio-container {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            min-height: 100vh;
-        }
+        /* Sidebar Split Grid Framework */
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: 100vh;
+        }
 
-        /* Sidebar Sticky Alignment */
-        sidebar {
-            background-color: var(--bg-sidebar);
-            border-right: 1px solid var(--border-color);
-            padding: 2.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: fixed;
-            width: 320px;
-            height: 100vh;
-            overflow-y: auto;
-            z-index: 10;
-        }
+        /* Sidebar Sticky Alignment */
+        sidebar {
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            width: 320px;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 10;
+        }
 
-        .profile-info h1 {
-            font-size: 1.85rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            margin-bottom: 0.5rem;
-            color: var(--text-heading);
-        }
+        .profile-info h1 {
+            font-size: 1.85rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+            color: var(--text-heading);
+        }
 
-        .profile-info h2 {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            line-height: 1.4;
-            margin-bottom: 2rem;
-        }
+        .profile-info h2 {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-bottom: 2rem;
+        }
 
-        .nav-links {
-            list-style: none;
-            margin-bottom: 2.5rem;
-        }
+        .nav-links {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
 
-        .nav-links li {
-            margin-bottom: 0.85rem;
-        }
+        .nav-links li {
+            margin-bottom: 0.85rem;
+        }
 
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
 
-        .nav-links a:hover {
-            color: var(--accent-blue);
-        }
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
 
-        .contact-info {
-            border-top: 1px solid var(--border-color);
-            padding-top: 1.5rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
+        .contact-info {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
 
-        .contact-info a {
-            color: var(--text-heading);
-            text-decoration: none;
-        }
+        .contact-info a {
+            color: var(--text-heading);
+            text-decoration: none;
+        }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
 
-        /* System Operations Theme Toggler Interface button */
-        .theme-toggle-btn {
-            background: var(--bg-canvas);
-            border: 1px solid var(--border-color);
-            color: var(--accent-blue);
-            padding: 0.5rem;
-            border-radius: 8px;
-            width: 100%;
-            margin-bottom: 1.5rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
+        /* System Operations Theme Toggler Interface button */
+        .theme-toggle-btn {
+            background: var(--bg-canvas);
+            border: 1px solid var(--border-color);
+            color: var(--accent-blue);
+            padding: 0.5rem;
+            border-radius: 8px;
+            width: 100%;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
 
-        .theme-toggle-btn:hover {
-            border-color: var(--accent-blue);
-        }
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-blue);
+        }
 
-        /* Main Workspace Panel */
-        main {
-            padding: 3rem 4rem;
-            max-width: 1200px;
-            margin-left: 320px;
-        }
+        /* Main Workspace Panel */
+        main {
+            padding: 3rem 4rem;
+            max-width: 1200px;
+            margin-left: 320px;
+        }
 
-        section {
-            margin-bottom: 4.5rem;
-        }
+        section {
+            margin-bottom: 4.5rem;
+        }
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 2rem;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
 
-        .summary-text {
-            font-size: 1.05rem;
-            color: var(--text-main);
-            margin-bottom: 2rem;
-            max-w: 4xl;
-        }
+        .summary-text {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            max-w: 4xl;
+        }
 
-        /* Skill Sets Categories layout mapping */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.25rem;
-        }
+        /* Skill Sets Categories layout mapping */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
 
-        .skill-category {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 1.25rem;
-            border-radius: 12px;
-        }
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 12px;
+        }
 
-        .skill-category h4 {
-            font-size: 0.95rem;
-            color: var(--text-heading);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        .skill-category h4 {
+            font-size: 0.95rem;
+            color: var(--text-heading);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-        .skill-category ul {
-            list-style: none;
-            font-size: 0.85rem;
-            color: var(--text-main);
-        }
+        .skill-category ul {
+            list-style: none;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
 
-        .skill-category li {
-            margin-bottom: 0.35rem;
-        }
+        .skill-category li {
+            margin-bottom: 0.35rem;
+        }
 
-        /* Portfolio Project Core Stack list ordering */
-        .projects-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
+        /* Portfolio Project Core Stack list ordering */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
 
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 380px 1fr;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
 
-        .project-image-wrapper {
-            background-color: var(--bg-canvas);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-right: 1px solid var(--border-color);
-            min-height: 280px;
-        }
+        .project-image-wrapper {
+            background-color: var(--bg-canvas);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid var(--border-color);
+            min-height: 280px;
+        }
 
-        .project-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+        .project-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-        .project-content {
-            padding: 2.25rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+        .project-content {
+            padding: 2.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-        .project-meta {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent-blue);
-            font-weight: 700;
-            margin-bottom: 0.35rem;
-        }
+        .project-meta {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
 
-        .project-title {
-            font-size: 1.35rem;
-            color: var(--text-heading);
-            margin-bottom: 0.85rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
+        .project-title {
+            font-size: 1.35rem;
+            color: var(--text-heading);
+            margin-bottom: 0.85rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
 
-        .project-description {
-            font-size: 0.9rem;
-            color: var(--text-main);
-            margin-bottom: 1.25rem;
-        }
+        .project-description {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 1.25rem;
+        }
 
-        .project-details {
-            margin-bottom: 1.25rem;
-            font-size: 0.85rem;
-        }
+        .project-details {
+            margin-bottom: 1.25rem;
+            font-size: 0.85rem;
+        }
 
-        .project-details strong {
-            color: var(--text-heading);
-        }
+        .project-details strong {
+            color: var(--text-heading);
+        }
 
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
 
-        .tag {
-            background: var(--bg-tag);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 0.2rem 0.65rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
+        .tag {
+            background: var(--bg-tag);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
 
-        /* Primary Viewports Adaptability overrides */
-        @media (max-width: 1024px) {
-            .portfolio-container {
-                grid-template-columns: 1fr;
-            }
-            sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                padding: 2rem;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-            }
-            main {
-                margin-left: 0;
-                padding: 2rem;
-            }
-            .project-card {
-                grid-template-columns: 1fr;
-            }
-            .project-image-wrapper {
-                height: 240px;
-                min-height: auto;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-            }
-        }
-    </style>
+        /* Primary Viewports Adaptability overrides */
+        @media (max-width: 1024px) {
+            .portfolio-container {
+                grid-template-columns: 1fr;
+            }
+            sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 2rem;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            main {
+                margin-left: 0;
+                padding: 2rem;
+            }
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+            .project-image-wrapper {
+                height: 240px;
+                min-height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="portfolio-container" id="themeShell">
-        
-        <sidebar>
-            <div class="profile-header">
-                <div class="flex justify-center mb-4" style="display: flex; justify-content: center; margin-bottom: 1.25rem;">
-                    <img src="profile.jpeg" alt="Jacob Democko Profile Photo" style="width: 110px; height: 110px; object-fit: cover; rounded-2xl shadow-sm border border-slate-700 rounded-xl" onerror="this.style.display='none';">
-                </div>
-                <div class="profile-info">
-                    <h1>Jacob Democko</h1>
-                    <h2>Senior Mechanical Engineer &amp; Technology Policy Specialist<br><span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; tracking-wider text-sky-400 block mt-1; color: var(--accent-blue);">Nuclear security and dual-use technology design</span></h2>
-                </div>
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="#about"><i class="fa-solid fa-user-tie"></i> Profile Summary</a></li>
-                        <li><a href="#thermal-fluid"><i class="fa-solid fa-wind"></i> Automotive Fluids &amp; Drag</a></li>
-                        <li><a href="#structural"><i class="fa-solid fa-cubes"></i> Precision Engineering</a></li>
-                        <li><a href="#policy"><i class="fa-solid fa-shield-halved"></i> Security &amp; Energy Policy</a></li>
-                        <li><a href="#manufacturing"><i class="fa-solid fa-microchip"></i> Advanced Manufacturing</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-            <div>
-                <button class="theme-toggle-btn" id="toggleButton" type="button">
-                    <i class="fa-solid fa-sun" id="toggleIcon"></i>
-                    <span id="toggleText">Switch to Light Canvas</span>
-                </button>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <a href="mailto:jacob.democko@gmail.com">jacob.democko@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>(954) 547-0511</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fa-solid fa-circle-check" style="color: #22c55e;"></i>
-                        <span style="font-size: 11px; font-weight: bold; color: var(--text-heading)">Active DoE Q Clearance</span>
-                    </div>
-                    <div class="contact-item" style="margin-top: 1rem;">
-                        <i class="fa-solid fa-file-arrow-down"></i>
-                        <a href="Jacob Democko Resume MAY2026.pdf" download="Jacob_Democko_Resume_May2026.pdf" style="font-weight: 600; color: var(--accent-blue);">Download Formal Resume</a>
-                    </div>
-                </div>
-            </div>
-        </sidebar>
+    <div class="portfolio-container" id="themeShell">
+        
+        <sidebar>
+            <div class="profile-header">
+                <div class="flex justify-center mb-4" style="display: flex; justify-content: center; margin-bottom: 1.25rem;">
+                    <img src="profile.jpeg" alt="Jacob Democko Profile Photo" style="width: 110px; height: 110px; object-fit: cover; rounded-2xl shadow-sm border border-slate-700 rounded-xl" onerror="this.style.display='none';">
+                </div>
+                <div class="profile-info">
+                    <h1>Jacob Democko</h1>
+                    <h2>Senior Mechanical Engineer &amp; Technology Policy Specialist<br><span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; tracking-wider text-sky-400 block mt-1; color: var(--accent-blue);">Nuclear security and dual-use technology design</span></h2>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#about"><i class="fa-solid fa-user-tie"></i> Profile Summary</a></li>
+                        <li><a href="#thermal-fluid"><i class="fa-solid fa-wind"></i> Automotive Fluids &amp; Drag</a></li>
+                        <li><a href="#structural"><i class="fa-solid fa-cubes"></i> Precision Engineering</a></li>
+                        <li><a href="#policy"><i class="fa-solid fa-shield-halved"></i> Security &amp; Energy Policy</a></li>
+                        <li><a href="#manufacturing"><i class="fa-solid fa-microchip"></i> Advanced Manufacturing</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div>
+                <button class="theme-toggle-btn" id="toggleButton" type="button">
+                    <i class="fa-solid fa-sun" id="toggleIcon"></i>
+                    <span id="toggleText">Switch to Light Canvas</span>
+                </button>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:jacob.democko@gmail.com">jacob.democko@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(954) 547-0511</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-circle-check" style="color: #22c55e;"></i>
+                        <span style="font-size: 11px; font-weight: bold; color: var(--text-heading)">Active DoE Q Clearance</span>
+                    </div>
+                    <div class="contact-item" style="margin-top: 1rem;">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        <a href="Jacob Democko Resume MAY2026.pdf" download="Jacob_Democko_Resume_May2026.pdf" style="font-weight: 600; color: var(--accent-blue);">Download Formal Resume</a>
+                    </div>
+                </div>
+            </div>
+        </sidebar>
 
-        <main>
-            
-            <section id="about">
-                <h3 class="section-title">Profile Summary</h3>
-                <p class="summary-text">
-                    Multidisciplinary engineer with high-impact experience balancing technical execution at Lawrence Livermore National Laboratory, rapid manufacturing optimization at Lucid Motors, and infrastructure deployment at RMF Engineering. Combines an M.S. in Mechanical Engineering (UC Davis) with an advanced concentration in technology security policy (UC Berkeley) to manage critical engineering systems from early concepts to global scale deployment.
-                </p>
-                
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4><i class="fa-solid fa-compass-drafting"></i> Precision Design &amp; Fab</h4>
-                        <ul>
-                            <li>• CAD Design & Integration (Catia, Creo)</li>
-                            <li>• Geometric Dimensioning &amp; Tolerancing (GD&amp;T)</li>
-                            <li>• Prototyping (3D Printing, MEMS)</li>
-                            <li>• Manufacturing Optimization (DFM/DFA)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4><i class="fa-solid fa-terminal"></i> Computation &amp; Test Diagnostics</h4>
-                        <ul>
-                            <li>• Engineering Scripts (MATLAB, Python)</li>
-                            <li>• Systems Automation (NI LabVIEW)</li>
-                            <li>• Experimental Design & Testing</li>
-                            <li>• Statistical Methods & Modeling</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4><i class="fa-solid fa-graduation-cap"></i> Clearance &amp; Education</h4>
-                        <ul>
-                            <li>• Active DoE Q Security Clearance Holder</li>
-                            <li>• Certified Engineer in Training (EIT)</li>
-                            <li>• M.S. Mechanical Engineering (UC Davis)</li>
-                            <li>• Advanced Tech Policy Concentration (UC Berkeley)</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+        <main>
+            
+            <section id="about">
+                <h3 class="section-title">Profile Summary</h3>
+                <p class="summary-text">
+                    Multidisciplinary engineer with high-impact experience balancing technical execution at Lawrence Livermore National Laboratory, rapid manufacturing optimization at Lucid Motors, and infrastructure deployment at RMF Engineering. Combines an M.S. in Mechanical Engineering (UC Davis) with an advanced concentration in technology security policy (UC Berkeley) to manage critical engineering systems from early concepts to global scale deployment.
+                </p>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4><i class="fa-solid fa-compass-drafting"></i> Precision Design &amp; Fab</h4>
+                        <ul>
+                            <li>• CAD Design & Integration (Catia, Creo)</li>
+                            <li>• Geometric Dimensioning &amp; Tolerancing (GD&amp;T)</li>
+                            <li>• Prototyping (3D Printing, MEMS)</li>
+                            <li>• Manufacturing Optimization (DFM/DFA)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fa-solid fa-terminal"></i> Computation &amp; Test Diagnostics</h4>
+                        <ul>
+                            <li>• Engineering Scripts (MATLAB, Python)</li>
+                            <li>• Systems Automation (NI LabVIEW)</li>
+                            <li>• Experimental Design & Testing</li>
+                            <li>• Statistical Methods & Modeling</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fa-solid fa-graduation-cap"></i> Clearance &amp; Education</h4>
+                        <ul>
+                            <li>• Active DoE Q Security Clearance Holder</li>
+                            <li>• Certified Engineer in Training (EIT)</li>
+                            <li>• M.S. Mechanical Engineering (UC Davis)</li>
+                            <li>• Advanced Tech Policy Concentration (UC Berkeley)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-            <section id="thermal-fluid">
-                <h3 class="section-title">Thermal Fluid Systems &amp; Aerodynamics</h3>
-                <div class="projects-grid">
+            <section id="thermal-fluid">
+                <h3 class="section-title">Thermal Fluid Systems &amp; Aerodynamics</h3>
+                <div class="projects-grid">
 
-                    <div class="project-card">
-                        <div class="project-image-wrapper">
-                            <img src="img_4255.jpg" alt="Lucid Automotive Wind Tunnel Testing Setup">
-                        </div>
-                        <div class="project-content">
-                            <div>
-                                <div class="project-meta">Lucid Motors | Wind Tunnel Validation</div>
-                                <h4 class="project-title">Airflow &amp; Aerodynamic Drag Optimization</h4>
-                                <p class="project-description">
-                                    Managed wind tunnel testing cycles using full-scale experimental vehicle models. Mapped out mass volumetric flow rates and active grille shutter (AGS) configurations to optimize electric vehicle cooling flow, charging, and range.
-                                </p>
-                                <div class="project-details">
-                                    <p><strong>Methodologies Used:</strong> Programmed localized multi-point sensor automated tracking layouts in a custom National Instruments LabVIEW environment to parse air profile metrics under continuous rolling-road simulation bounds.</p>
-                                </div>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">Aerodynamic Drag</span>
-                                <span class="tag">NI LabVIEW Automation</span>
-                                <span class="tag">EV Cooling Modules</span>
-                                <span class="tag">Fluid Dynamics</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <img src="img_4255.jpg" alt="Lucid Automotive Wind Tunnel Testing Setup">
+                        </div>
+                        <div class="project-content">
+                            <div>
+                                <div class="project-meta">Lucid Motors | Wind Tunnel Validation</div>
+                                <h4 class="project-title">Airflow &amp; Aerodynamic Drag Optimization</h4>
+                                <p class="project-description">
+                                    Managed wind tunnel testing cycles using full-scale experimental vehicle models. Mapped out mass volumetric flow rates and active grille shutter (AGS) configurations to optimize electric vehicle cooling flow, charging, and range.
+                                </p>
+                                <div class="project-details">
+                                    <p><strong>Methodologies Used:</strong> Programmed localized multi-point sensor automated tracking layouts in a custom National Instruments LabVIEW environment to parse air profile metrics under continuous rolling-road simulation bounds.</p>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Aerodynamic Drag</span>
+                                <span class="tag">NI LabVIEW Automation</span>
+                                <span class="tag">EV Cooling Modules</span>
+                                <span class="tag">Fluid Dynamics</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="project-card">
-                        <div class="project-image-wrapper">
-                            <div style="font-size: 4rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-leaf"></i></div>
-                        </div>
-                        <div class="project-content">
-                            <div>
-                                <div class="project-meta">Sustainable Logistics | UC Davis MAE 256</div>
-                                <h4 class="project-title">Radiator Fleet Manufacturing Life Cycle Study</h4>
-                                <p class="project-description">
-                                    Drafted environmental study of commercial vehicle aluminum-copper heat exchanger production. Evaluated atmospheric carbon footprints and proposed alternatives for brazing process to reduce per-unit energy consumption.
-                                </p>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">Lifecycle Assessment (LCA)</span>
-                                <span class="tag">Alloy Brazing Metallurgy</span>
-                                <span class="tag">Fleet Cleantech</span>
-                                <span class="tag">Supply-Chain Metrics</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <div style="font-size: 4rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-leaf"></i></div>
+                        </div>
+                        <div class="project-content">
+                            <div>
+                                <div class="project-meta">Sustainable Logistics | UC Davis MAE 256</div>
+                                <h4 class="project-title">Radiator Fleet Manufacturing Life Cycle Study</h4>
+                                <p class="project-description">
+                                    Drafted environmental study of commercial vehicle aluminum-copper heat exchanger production. Evaluated atmospheric carbon footprints and proposed alternatives for brazing process to reduce per-unit energy consumption.
+                                </p>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Lifecycle Assessment (LCA)</span>
+                                <span class="tag">Alloy Brazing Metallurgy</span>
+                                <span class="tag">Fleet Cleantech</span>
+                                <span class="tag">Supply-Chain Metrics</span>
+                            </div>
+                        </div>
+                    </div>
 
-                </div>
-            </section>
+                </div>
+            </section>
 
-            <section id="structural">
-                <h3 class="section-title">Precision Structural Engineering &amp; Metrology</h3>
-                <div class="projects-grid">
+            <section id="structural">
+                <h3 class="section-title">Precision Structural Engineering &amp; Metrology</h3>
+                <div class="projects-grid">
 
-                    <div class="project-card">
-                        <div class="project-image-wrapper">
-                            <img src="img_1030.jpg" alt="High-Capacity Structural Machined Base Components">
-                        </div>
-                        <div class="project-content">
-                            <div>
-                                <div class="project-meta">Lawrence Livermore National Laboratory | Heavy Metrology</div>
-                                <h4 class="project-title">250-Ton Load Cell System Fixturing</h4>
-                                <p class="project-description">
-                                    Generated engineering documentation and geometric tolerance prints (GD&amp;T) supporting high-capacity structural testing at high load.
-                                </p>
-                                <div class="project-details">
-                                    <p><strong>Mechanical Parameters:</strong> Mechanical load distribution, structural rigidity, and assembly tolerances with high safety factors to insulate sensitive multi-ton measurement links from shear vectors.</p>
-                                </div>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">Geometric Dimensioning &amp; Tolerancing (GD&amp;T)</span>
-                                <span class="tag">Load Distribution Path</span>
-                                <span class="tag">Heavy Testing Rig Tooling</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <img src="img_1030.jpg" alt="High-Capacity Structural Machined Base Components">
+                        </div>
+                        <div class="project-content">
+                            <div>
+                                <div class="project-meta">Lawrence Livermore National Laboratory | Heavy Metrology</div>
+                                <h4 class="project-title">250-Ton Load Cell System Fixturing</h4>
+                                <p class="project-description">
+                                    Generated engineering documentation and geometric tolerance prints (GD&amp;T) supporting high-capacity structural testing at high load.
+                                </p>
+                                <div class="project-details">
+                                    <p><strong>Mechanical Parameters:</strong> Mechanical load distribution, structural rigidity, and assembly tolerances with high safety factors to insulate sensitive multi-ton measurement links from shear vectors.</p>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Geometric Dimensioning &amp; Tolerancing (GD&amp;T)</span>
+                                <span class="tag">Load Distribution Path</span>
+                                <span class="tag">Heavy Testing Rig Tooling</span>
+                            </div>
+                        </div>
+                    </div>
 
-                </div>
-            </section>
+                </div>
+            </section>
 
-            <section id="policy">
-                <h3 class="section-title">Technology Policy &amp; Global Security Strategy</h3>
-                <div class="projects-grid">
+            <section id="policy">
+                <h3 class="section-title">Technology Policy &amp; Global Security Strategy</h3>
+                <div class="projects-grid">
 
-                    <div class="project-card">
-                        <div class="project-image-wrapper">
-                            <div style="font-size: 4.5rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-file-shield"></i></div>
-                        </div>
-                        <div class="project-content">
-                            <div>
-                                <div class="project-meta">Nuclear Infrastructure Memo | UC Berkeley PUBPOL 247</div>
-                                <h4 class="project-title">U.S. HALEU Leasing Operations (HALO) Program</h4>
-                                <p class="project-description">
-                                    Authored an executive policy memo proposing legislative updates to secure Small Modular Reactor (SMR) export dominance. Developed fuel cycle alternatives where international purchasers lease HALEU fuel from the US, advancing the domestic supply chain and neutralizing nuclear nonproliferation concerns.
-                                </p>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">SMR Commercial Scaling</span>
-                                <span class="tag">HALEU Enrichment Cycles</span>
-                                <span class="tag">Nonproliferation Strategy</span>
-                                <span class="tag">10 CFR Part 53 Regulation</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <div style="font-size: 4.5rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-file-shield"></i></div>
+                        </div>
+                        <div class="project-content">
+                            <div>
+                                <div class="project-meta">Nuclear Infrastructure Memo | UC Berkeley PUBPOL 247</div>
+                                <h4 class="project-title">U.S. HALEU Leasing Operations (HALO) Program</h4>
+                                <p class="project-description">
+                                    Authored an executive policy memo proposing legislative updates to secure Small Modular Reactor (SMR) export dominance. Developed fuel cycle alternatives where international purchasers lease HALEU fuel from the US, advancing the domestic supply chain and neutralizing nuclear nonproliferation concerns.
+                                </p>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">SMR Commercial Scaling</span>
+                                <span class="tag">HALEU Enrichment Cycles</span>
+                                <span class="tag">Nonproliferation Strategy</span>
+                                <span class="tag">10 CFR Part 53 Regulation</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="project-card">
-                        <div class="project-image-wrapper">
-                            <div style="font-size: 4.5rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-plane-up"></i></div>
-                        </div>
-                        <div class="project-content">
-                            <div>
-                                <div class="project-meta">Nuclear Strategy Group | UC Berkeley PUBPOL C285</div>
-                                <h4 class="project-title">Open Skies II Trilateral Transparency Agreement</h4>
-                                <p class="project-description">
-                                    Authored a strategic alternative to arms control, linking the US, Russia, and China. Replaced traditional disarmament negotiations with a transparency framework involving unarmed surveillance flights.
-                                </p>
-                                <div class="project-details">
-                                    <p><strong>Treaty Mechanics:</strong> Outlined imaging equipment capabilities limitations, sharing metrics, and a comparative operational matrix to reduce strategic parity uncertainties between peers.</p>
-                                </div>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">Arms Verification Systems</span>
-                                <span class="tag">Trilateral Energy Diplomacy</span>
-                                <span class="tag">Information Parity Matrix</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <div style="font-size: 4.5rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-plane-up"></i></div>
+                        </div>
+                        <div class="project-content">
+                            <div>
+                                <div class="project-meta">Nuclear Strategy Group | UC Berkeley PUBPOL C285</div>
+                                <h4 class="project-title">Open Skies II Trilateral Transparency Agreement</h4>
+                                <p class="project-description">
+                                    Authored a strategic alternative to arms control, linking the US, Russia, and China. Replaced traditional disarmament negotiations with a transparency framework involving unarmed surveillance flights.
+                                </p>
+                                <div class="project-details">
+                                    <p><strong>Treaty Mechanics:</strong> Outlined imaging equipment capabilities limitations, sharing metrics, and a comparative operational matrix to reduce strategic parity uncertainties between peers.</p>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Arms Verification Systems</span>
+                                <span class="tag">Trilateral Energy Diplomacy</span>
+                                <span class="tag">Information Parity Matrix</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="project-card">
-                        <div class="project-image-wrapper">
-                            <div style="font-size: 4.5rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-chart-pie"></i></div>
-                        </div>
-                        <div class="project-content">
-                            <div>
-                                <div class="project-meta">Longitudinal Econometrics | UC Davis MAE 298</div>
-                                <h4 class="project-title">Econometric Analysis of Global AI Patents</h4>
-                                <p class="project-description">
-                                    Built a multi-variable panel dataset (2013-2023) separating regional variations over time to track macroeconomic conversion rates from open research indexes into issued technology patents.
-                                </p>
-                                <div class="project-details">
-                                    <p><strong>Statistical Fitness:</strong> Formulated region/year fixed-effects mathematical models establishing that a 1% expansion in academic publications matches a 0.98% lift in local patent rate.</p>
-                                </div>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">Panel Regression Modeling</span>
-                                <span class="tag">Fixed Effects Model</span>
-                                <span class="tag">OLS Skew Corrections</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <div style="font-size: 4.5rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-chart-pie"></i></div>
+                        </div>
+                        <div class="project-content">
+                            <div>
+                                <div class="project-meta">Longitudinal Econometrics | UC Davis MAE 298</div>
+                                <h4 class="project-title">Econometric Analysis of Global AI Patents</h4>
+                                <p class="project-description">
+                                    Built a multi-variable panel dataset (2013-2023) separating regional variations over time to track macroeconomic conversion rates from open research indexes into issued technology patents.
+                                </p>
+                                <div class="project-details">
+                                    <p><strong>Statistical Fitness:</strong> Formulated region/year fixed-effects mathematical models establishing that a 1% expansion in academic publications matches a 0.98% lift in local patent rate.</p>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Panel Regression Modeling</span>
+                                <span class="tag">Fixed Effects Model</span>
+                                <span class="tag">OLS Skew Corrections</span>
+                            </div>
+                        </div>
+                    </div>
 
-                </div>
-            </section>
+                </div>
+            </section>
 
-            <section id="manufacturing">
-                <h3 class="section-title">Advanced Manufacturing &amp; Microfluidics</h3>
-                <div class="projects-grid">
-                    
-                    <div class="project-card">
-                        <div class="project-image-wrapper">
-                            <div style="font-size: 4.5rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-chart-line"></i></div>
-                        </div>
-                        <div class="project-content">
-                            <div>
-                                <div class="project-meta">Additive Manufacturing Research | UC Davis MAE 259</div>
-                                <h4 class="project-title">SLA 3D Printing Optimization Study</h4>
-                                <p class="project-description">
-                                    Investigated commercial stereolithography (SLA) roughness and dimensional repeatability parameters. Designed process mapping to track optimal printing thresholds while securing target structural resolution.
-                                </p>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">Stereolithography (SLA)</span>
-                                <span class="tag">Surface Metrology</span>
-                                <span class="tag">Photon Printing Control</span>
-                            </div>
-                        </div>
-                    </div>
+            <section id="manufacturing">
+                <h3 class="section-title">Advanced Manufacturing &amp; Microfluidics</h3>
+                <div class="projects-grid">
+                    
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <div style="font-size: 4.5rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-chart-line"></i></div>
+                        </div>
+                        <div class="project-content">
+                            <div>
+                                <div class="project-meta">Additive Manufacturing Research | UC Davis MAE 259</div>
+                                <h4 class="project-title">SLA 3D Printing Optimization Study</h4>
+                                <p class="project-description">
+                                    Investigated commercial stereolithography (SLA) roughness and dimensional repeatability parameters. Designed process mapping to track optimal printing thresholds while securing target structural resolution.
+                                </p>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Stereolithography (SLA)</span>
+                                <span class="tag">Surface Metrology</span>
+                                <span class="tag">Photon Printing Control</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="project-card">
-                        <div class="project-image-wrapper">
-                            <div style="font-size: 4.5rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-vial-circle-check"></i></div>
-                        </div>
-                        <div class="project-content">
-                            <div>
-                                <div class="project-meta">Bio-MEMS Fabrication Configuration</div>
-                                <h4 class="project-title">Chip-Scale Hemostasis Force Sensors</h4>
-                                <p class="project-description">
-                                    Research proposal of engineered micro-scale hemostasis blood parameter device. Designed a microfluidic architecture to evaluate early-stage platelet clot retraction kinetics via silicon flexible cantilever beams.
-                                </p>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">Microfluidics Engineering</span>
-                                <span class="tag">Silicon Micromachining</span>
-                                <span class="tag">Point-Of-Care Triage</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="project-card">
+                        <div class="project-image-wrapper">
+                            <div style="font-size: 4.5rem; color: var(--border-color); opacity: 0.6;"><i class="fa-solid fa-vial-circle-check"></i></div>
+                        </div>
+                        <div class="project-content">
+                            <div>
+                                <div class="project-meta">Bio-MEMS Fabrication Configuration</div>
+                                <h4 class="project-title">Chip-Scale Hemostasis Force Sensors</h4>
+                                <p class="project-description">
+                                    Research proposal of engineered micro-scale hemostasis blood parameter device. Designed a microfluidic architecture to evaluate early-stage platelet clot retraction kinetics via silicon flexible cantilever beams.
+                                </p>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Microfluidics Engineering</span>
+                                <span class="tag">Silicon Micromachining</span>
+                                <span class="tag">Point-Of-Care Triage</span>
+                            </div>
+                        </div>
+                    </div>
 
-                </div>
-            </section>
+                </div>
+            </section>
 
-        </main>
-    </div>
+        </main>
+    </div>
 
-    <footer class="text-center text-slate-500 dark:text-slate-400 py-8 text-xs font-semibold uppercase tracking-wider bg-slate-900 border-t border-slate-800" style="background-color: var(--bg-sidebar); border-top: 1px solid var(--border-color); color: var(--text-muted); padding: 2rem 0; text-align: center; font-size: 11px; font-weight: bold; letter-spacing: 0.05em;">
-        <div class="max-w-6xl mx-auto px-4">
-            &copy; 2026 Jacob Democko. All Rights Reserved.
-        </div>
-    </footer>
+    <footer class="text-center text-slate-500 dark:text-slate-400 py-8 text-xs font-semibold uppercase tracking-wider bg-slate-900 border-t border-slate-800" style="background-color: var(--bg-sidebar); border-top: 1px solid var(--border-color); color: var(--text-muted); padding: 2rem 0; text-align: center; font-size: 11px; font-weight: bold; letter-spacing: 0.05em;">
+        <div class="max-w-6xl mx-auto px-4">
+            &copy; 2026 Jacob Democko. All Rights Reserved.
+        </div>
+    </footer>
 
-    <script>
-        const themeShell = document.getElementById('themeShell');
-        const toggleButton = document.getElementById('toggleButton');
-        const toggleIcon = document.getElementById('toggleIcon');
-        const toggleText = document.getElementById('toggleText');
+    <script>
+        const themeShell = document.getElementById('themeShell');
+        const toggleButton = document.getElementById('toggleButton');
+        const toggleIcon = document.getElementById('toggleIcon');
+        const toggleText = document.getElementById('toggleText');
 
-        // Check user preferences from local storage or default to dark mode directly
-        let isDarkMode = localStorage.getItem('theme-mode') !== 'light';
+        // Check user preferences from local storage or default to dark mode directly
+        let isDarkMode = localStorage.getItem('theme-mode') !== 'light';
 
-        function applyTheme() {
-            if (isDarkMode) {
-                document.documentElement.classList.remove('light-theme');
-                toggleIcon.className = "fa-solid fa-sun";
-                toggleText.innerText = "Switch to Light Canvas";
-                localStorage.setItem('theme-mode', 'dark');
-            } else {
-                document.documentElement.classList.add('light-theme');
-                toggleIcon.className = "fa-solid fa-moon";
-                toggleText.innerText = "Switch to Dark Space";
-                localStorage.setItem('theme-mode', 'light');
-            }
-        }
+        function applyTheme() {
+            if (isDarkMode) {
+                themeShell.classList.remove('light-theme');
+                toggleIcon.className = "fa-solid fa-sun";
+                toggleText.innerText = "Switch to Light Canvas";
+                localStorage.setItem('theme-mode', 'dark');
+            } else {
+                themeShell.classList.add('light-theme');
+                toggleIcon.className = "fa-solid fa-moon";
+                toggleText.innerText = "Switch to Dark Space";
+                localStorage.setItem('theme-mode', 'light');
+            }
+        }
 
-        // Click handler triggers theme switch on root variable pointers
-        toggleButton.addEventListener('click', () => {
-            isDarkMode = !isDarkMode;
-            applyTheme();
-        });
+        // Click handler triggers theme switch on root variable pointers
+        toggleButton.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            applyTheme();
+        });
 
-        // Initialize display configuration on loading execution
-        applyTheme();
-    </script>
+        // Initialize display configuration on loading execution
+        applyTheme();
+    </script>
 </body>
 </html>
